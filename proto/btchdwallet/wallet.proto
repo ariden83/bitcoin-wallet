@@ -2,7 +2,7 @@
 syntax = "proto3";
 package go.microservice.btchdwallet;
 
-option go_package = "github.com/LuisAcerv/btchdwallet";
+option go_package = "github.com/ariden83/bitcoin-wallet";
 
 service Wallet {
     rpc CreateWallet(Request)      returns (Response) {}
