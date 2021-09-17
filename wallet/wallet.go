@@ -10,12 +10,23 @@ import (
 	"github.com/blockcypher/gobcy"
 	"github.com/brianium/mnemonic"
 	"github.com/wemeetagain/go-hdwallet"
+	"go.uber.org/zap"
 )
 
-var conf = config.ParseConfig()
+type Wallet struct {
+	log  *zap.Logger
+	conf *config.Config
+}
+
+func New(conf *config.Config, l *zap.Logger) *Wallet {
+	return &Wallet{
+		conf: conf,
+		log:  l,
+	}
+}
 
 // CreateWallet is in charge of creating a new root wallet
-func CreateWallet() *pb.Response {
+func (Wallet) CreateWallet() *pb.Response {
 	// Generate a random 256 bit seed
 	seed := crypt.CreateHash()
 	mnemonic, _ := mnemonic.New([]byte(seed), mnemonic.English)
@@ -33,7 +44,7 @@ func CreateWallet() *pb.Response {
 }
 
 // DecodeWallet is in charge of decoding wallet from mnemonic
-func DecodeWallet(mnemonic string) *pb.Response {
+func (Wallet) DecodeWallet(mnemonic string) *pb.Response {
 	// Get private key from mnemonic
 	masterprv := hdwallet.MasterKey([]byte(mnemonic))
 
@@ -47,8 +58,8 @@ func DecodeWallet(mnemonic string) *pb.Response {
 }
 
 // GetBalance is in charge of returning the given address balance
-func GetBalance(address string) *pb.Response {
-	btc := gobcy.API{conf.Blockcypher.Token, "btc", "main"}
+func (w *Wallet) GetBalance(address string) *pb.Response {
+	btc := gobcy.API{w.conf.BlockCypher.Token, "btc", "main"}
 	addr, err := btc.GetAddrBal(address, nil)
 	if err != nil {
 		fmt.Println(err)
@@ -59,6 +70,11 @@ func GetBalance(address string) *pb.Response {
 	totalSent := addr.TotalSent
 	unconfirmedBalance := addr.UnconfirmedBalance
 
-	return &pb.Response{Address: address, Balance: int64(balance), TotalReceived: int64(totalReceived), TotalSent: int64(totalSent), UnconfirmedBalance: int64(unconfirmedBalance)}
-
+	return &pb.Response{
+		Address:            address,
+		Balance:            int64(balance.Uint64()),
+		TotalReceived:      int64(totalReceived.Uint64()),
+		TotalSent:          int64(totalSent.Uint64()),
+		UnconfirmedBalance: int64(unconfirmedBalance.Uint64()),
+	}
 }
