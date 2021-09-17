@@ -1,6 +1,12 @@
 # bitcoin-wallet
 HD bitcoin wallet using golang
 
+## Resources
+
+* See tutorial [levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part](https://levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part-l-56d8df05c602)
+* See original code [github.com/LuisAcerv/btchdwallet](https://github.com/LuisAcerv/btchdwallet)
+ 
+
 ## Command
 
 - `make local` - launch the app
@@ -10,13 +16,6 @@ HD bitcoin wallet using golang
 ### Metrics
 
 Metrics can be get on http://127.0.0.1:8082/metrics depending on configuration
-The namespace is *private_api_video_ref_notifier*
-
-*private_api_video_ref_notification_duration is the duration of a page total traitement
-*private_api_video_ref_upsert is the number of traitements with label
-    * `unusable`: invalid data received
-    * `error`: error during traitement
-    * `created`: all site segment created
   
 ### Healthz
 
@@ -31,11 +30,6 @@ and
 `
 http://127.0.0.1:8082/readiness
 
-## Resources
-
-* See tutorial [levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part](https://levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part-l-56d8df05c602)
-* See original code [github.com/LuisAcerv/btchdwallet](https://github.com/LuisAcerv/btchdwallet)
- 
 
 ## PROTOC installation
 
