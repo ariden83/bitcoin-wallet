@@ -75,8 +75,11 @@ go run client/client.go -m=create-wallet
 #### Output:
 
 New Wallet >>
+
 > Public Key: xpub661MyMwAqRbcG3fYrFtkZGesCkhTZWAwHDM2Q1DbeMH6CcQSkrL5qzYwnRkzwKKhrsjbngkC8EcNTBvQmBAJhMUVAXmU4qv8jzVFkhrqme1
+
 > Private Key: xprv9s21ZrQH143K3Zb5kEMkC8i8eiryA3T5uzRRbcoz61k7Kp5JDK1qJCETw9vxGBCe88qu57EKUu2hX54zeivPiZhCNQ5dV6CfKdhsCwMqm5j
+
 > Mnemonic: coral light army glare basket boil school egg couple payment flee goose
 
 To get your wallet
