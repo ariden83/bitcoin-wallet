@@ -63,14 +63,14 @@ sudo chwon -R [user] /usr/local/include/google
 ## CLI
 
 Run the grpc server
-`
+```
 $ go run main.go
-`
+```
 
 In another terminal run:
-`
+```
 go run client/client.go -m=create-wallet
-`
+```
 
 #### Output:
 
@@ -80,11 +80,11 @@ New Wallet >>
 > Mnemonic: coral light army glare basket boil school egg couple payment flee goose
 
 To get your wallet
-`
+```
 go run client/client.go -m=get-wallet -mne="coral light army glare basket boil school egg couple payment flee goose"
-`
+```
 
 To get your balance
-`
+```
 go run client/client.go -m=get-balance -addr=1Go23sv8vR81YuV1hHGsUrdyjLcGVUpCDy
-`
+```
