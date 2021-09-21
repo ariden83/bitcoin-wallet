@@ -29,6 +29,7 @@ and
 
 `
 http://127.0.0.1:8082/readiness
+`
 
 
 ## PROTOC installation
@@ -57,4 +58,33 @@ sudo mv protoc3/include/* /usr/local/include/
 ```
 sudo chwon [user] /usr/local/bin/protoc
 sudo chwon -R [user] /usr/local/include/google
+```
 
+## CLI
+
+Run the grpc server
+`
+$ go run main.go
+`
+
+In another terminal run:
+`
+go run client/client.go -m=create-wallet
+`
+
+#### Output:
+
+New Wallet >>
+> Public Key: xpub661MyMwAqRbcG3fYrFtkZGesCkhTZWAwHDM2Q1DbeMH6CcQSkrL5qzYwnRkzwKKhrsjbngkC8EcNTBvQmBAJhMUVAXmU4qv8jzVFkhrqme1
+> Private Key: xprv9s21ZrQH143K3Zb5kEMkC8i8eiryA3T5uzRRbcoz61k7Kp5JDK1qJCETw9vxGBCe88qu57EKUu2hX54zeivPiZhCNQ5dV6CfKdhsCwMqm5j
+> Mnemonic: coral light army glare basket boil school egg couple payment flee goose
+
+To get your wallet
+`
+go run client/client.go -m=get-wallet -mne="coral light army glare basket boil school egg couple payment flee goose"
+`
+
+To get your balance
+`
+go run client/client.go -m=get-balance -addr=1Go23sv8vR81YuV1hHGsUrdyjLcGVUpCDy
+`
