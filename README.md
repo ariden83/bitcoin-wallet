@@ -1,11 +1,11 @@
 # bitcoin-wallet
-HD bitcoin wallet using golang
+HD bitcoin wallet using golang and Blockcypher for the blockchain requests, for generating addresses, Blockcypher allows you to create wallets, but I thought that would be good to use the API only for the Blockchain requests.
 
 ## Resources
 
 * See tutorial [levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part](https://levelup.gitconnected.com/bitcoin-hd-wallet-with-golang-and-grpc-part-l-56d8df05c602)
 * See original code [github.com/LuisAcerv/btchdwallet](https://github.com/LuisAcerv/btchdwallet)
- 
+* See [blockcypher api](https://www.blockcypher.com/)
 
 ## Command
 
